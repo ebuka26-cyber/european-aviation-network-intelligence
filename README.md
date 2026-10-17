@@ -82,7 +82,7 @@ Three report-page tooltips replace the default tooltips on the main visuals. The
 
 <p>
   <img src="docs/images/tooltip_tt1_airport.png" alt="Airport tooltip on the Page 1 map" width="32%">
-  <img src="docs/images/tooltip_tt2_route.jpg" alt="Route tooltip on the Page 3 route chart" width="32%">
+  <img src="docs/images/tooltip_tt2_route.png" alt="Route tooltip on the Page 3 route chart" width="32%">
   <img src="docs/images/tooltip_tt3_growth_coverage.png" alt="Growth coverage tooltip on the Page 1 growth chart" width="32%">
 </p>
 
