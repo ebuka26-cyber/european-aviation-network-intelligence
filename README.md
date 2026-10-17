@@ -146,7 +146,7 @@ erDiagram
 
 All 12 relationships are one-to-many and single-direction; one (airport to route reporting airport) is inactive and used only through `USERELATIONSHIP`. More detail: [docs/DATA_MODEL.md](docs/DATA_MODEL.md).
 
-![Model view in Power BI Desktop](docs/images/model_view.jpg)
+![Data model: tables, key columns and relationships](docs/images/data_model.png)
 
 ## DAX measures
 79 measures in six display folders:
