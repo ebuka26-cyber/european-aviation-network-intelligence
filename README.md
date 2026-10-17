@@ -2,7 +2,7 @@
 
 A Power BI dashboard on air passenger traffic, capacity and route networks in the four Nordic countries (Sweden, Norway, Denmark and Finland). It combines four public data sources (Eurostat, Avinor, Finavia and OurAirports) in one star-schema model with 79 DAX measures, six report pages and three report-page tooltips.
 
-![Executive Overview page](docs/images/01_executive_overview.jpg)
+![Executive Overview page](docs/images/01_executive_overview.png)
 
 ## Contents
 - [Objectives](#objectives)
@@ -49,27 +49,27 @@ A one-screen answer to "How is Nordic aviation performing, and where is growth c
 ### 2. Airport Performance
 Benchmarks one airport against its peers; also the drill-through target from the map. Monthly trend against the prior year, a month-by-year heatmap, share of Nordic passengers, top 10 departure destinations, flights and seats by month, and the share of airport traffic that the route data explains.
 
-![Airport Performance](docs/images/02_airport_performance.jpg)
+![Airport Performance](docs/images/02_airport_performance.png)
 
 ### 3. Network & Route Intelligence
 The route network from Eurostat route data (2022-2024): top 10 two-way routes with the route tooltip, a destinations map, route volume against load factor, route scope mix, passengers by distance band and a connectivity table by origin airport. Norwegian domestic routes are confidential at Eurostat; they are counted and shown as blank, never as zero.
 
-![Network & Route Intelligence](docs/images/03_network_route_intelligence.jpg)
+![Network & Route Intelligence](docs/images/03_network_route_intelligence.png)
 
 ### 4. Norway Deep Dive (Avinor)
 Avinor's own statistics for 43 Norwegian airports, including 17 small airports that Eurostat does not cover: domestic, international and offshore (helicopter) passengers, top airports by international passengers, Oslo transfer share, passengers against flight movements (indexed) and an Avinor-to-Eurostat data-trust table.
 
-![Norway Deep Dive (Avinor)](docs/images/04_norway_deep_dive_avinor.jpg)
+![Norway Deep Dive (Avinor)](docs/images/04_norway_deep_dive_avinor.png)
 
 ### 5. Helsinki Hub (Finavia)
 Helsinki Airport from 1998 to 2025 using Finavia's annual statistics: long-term passengers, domestic against international traffic, transfer share, recovery against 2019, compound growth over any selected range, Finavia against Eurostat, and Eurostat monthly passengers and destinations.
 
-![Helsinki Hub (Finavia)](docs/images/05_helsinki_hub_finavia.jpg)
+![Helsinki Hub (Finavia)](docs/images/05_helsinki_hub_finavia.png)
 
 ### 6. Data Quality & Methodology
 How the four sources were combined and checked: data-quality KPI cards, a source coverage matrix (1998-2025), like-for-like against reported growth, data-trust ratios, the 16 quality rules built into the model and definitions of the passenger concepts.
 
-![Data Quality & Methodology](docs/images/06_data_quality_methodology.jpg)
+![Data Quality & Methodology](docs/images/06_data_quality_methodology.png)
 
 ### Tooltip pages
 Three report-page tooltips replace the default tooltips on the main visuals. They are hidden from page navigation.
@@ -81,9 +81,9 @@ Three report-page tooltips replace the default tooltips on the main visuals. The
 | TT3 Growth coverage | Growth figures on Pages 1 and 2 | Like-for-like against reported growth, airport-months excluded and the coverage note |
 
 <p>
-  <img src="docs/images/tooltip_tt1_airport.jpg" alt="Airport tooltip on the Page 1 map" width="32%">
+  <img src="docs/images/tooltip_tt1_airport.png" alt="Airport tooltip on the Page 1 map" width="32%">
   <img src="docs/images/tooltip_tt2_route.jpg" alt="Route tooltip on the Page 3 route chart" width="32%">
-  <img src="docs/images/tooltip_tt3_growth_coverage.jpg" alt="Growth coverage tooltip on the Page 1 growth chart" width="32%">
+  <img src="docs/images/tooltip_tt3_growth_coverage.png" alt="Growth coverage tooltip on the Page 1 growth chart" width="32%">
 </p>
 
 ## Data sources
