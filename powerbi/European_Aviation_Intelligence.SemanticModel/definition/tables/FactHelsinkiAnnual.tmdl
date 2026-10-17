@@ -1,0 +1,161 @@
+table FactHelsinkiAnnual
+	lineageTag: 105cd198-aea2-44e0-998d-dc8dc81d8c8c
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: ff9fab0b-6f3c-4d94-a17d-33eb5a02e737
+		summarizeBy: sum
+		sourceColumn: Year
+
+		annotation SummarizationSetBy = Automatic
+
+	column AirportICAO
+		dataType: string
+		lineageTag: fa8aaf51-f496-4557-8f75-c01d873d6455
+		summarizeBy: none
+		sourceColumn: AirportICAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column FinaviaAirportName
+		dataType: string
+		lineageTag: c5a6344e-6eec-477c-9dc4-0f35e6db0ab6
+		summarizeBy: none
+		sourceColumn: FinaviaAirportName
+
+		annotation SummarizationSetBy = Automatic
+
+	column TrafficType
+		dataType: string
+		lineageTag: 63a51597-a556-4562-8bce-91854e44c30e
+		summarizeBy: none
+		sourceColumn: TrafficType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ArrivalPassengers
+		dataType: int64
+		formatString: 0
+		lineageTag: 1323145c-025c-4b3d-bc53-7e8d6fe7aeed
+		summarizeBy: sum
+		sourceColumn: ArrivalPassengers
+
+		annotation SummarizationSetBy = Automatic
+
+	column DeparturePassengers
+		dataType: int64
+		formatString: 0
+		lineageTag: 23864a71-5413-45ae-85d3-ff5f5bfb93b2
+		summarizeBy: sum
+		sourceColumn: DeparturePassengers
+
+		annotation SummarizationSetBy = Automatic
+
+	column TransferPassengers
+		dataType: int64
+		formatString: 0
+		lineageTag: 970fc9a5-fba6-49a8-8036-7deb5a3e620b
+		summarizeBy: sum
+		sourceColumn: TransferPassengers
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalPassengers
+		dataType: int64
+		formatString: 0
+		lineageTag: b03c0d52-17d8-4f25-a4b0-61c884bc6dd8
+		summarizeBy: sum
+		sourceColumn: TotalPassengers
+
+		annotation SummarizationSetBy = Automatic
+
+	column InAnalysisWindow
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 67a67ef6-ff1f-4eb2-9a3c-c0299cdf0bb3
+		summarizeBy: none
+		sourceColumn: InAnalysisWindow
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_TotalMatchesComponents
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 15803f9b-0dab-438a-9583-a3895e194e39
+		summarizeBy: none
+		sourceColumn: DQ_TotalMatchesComponents
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_YearReconcilesWithGrandTotal
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 07c7aa2d-f86a-4dde-94cb-6adcaaa7ccdb
+		summarizeBy: none
+		sourceColumn: DQ_YearReconcilesWithGrandTotal
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceDataset
+		dataType: string
+		lineageTag: cf3a687b-6ab0-407f-ab56-5cad03a9d8f0
+		summarizeBy: none
+		sourceColumn: SourceDataset
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceFile
+		dataType: string
+		lineageTag: 2d3c07d3-9439-4947-81ee-41278c281cdc
+		summarizeBy: none
+		sourceColumn: SourceFile
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceSheet
+		dataType: string
+		lineageTag: 670971f5-4183-4956-afc1-78d537a73276
+		summarizeBy: none
+		sourceColumn: SourceSheet
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceRow
+		dataType: int64
+		formatString: 0
+		lineageTag: 81a2c1ae-05db-4519-aaed-140c78fdef2b
+		summarizeBy: sum
+		sourceColumn: SourceRow
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceColumns
+		dataType: string
+		lineageTag: d9d15410-fee7-4b86-a83f-a7b4e2b3ee15
+		summarizeBy: none
+		sourceColumn: SourceColumns
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceRetrievedUTC
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: f0ea846e-f2d7-4748-8cfa-2eeabe7a82ba
+		summarizeBy: none
+		sourceColumn: SourceRetrievedUTC
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactHelsinkiAnnual = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents(DataFolder & "\FactHelsinkiAnnual.csv"), [Delimiter = ",", Columns = 17, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"Year", Int64.Type}, {"AirportICAO", type text}, {"FinaviaAirportName", type text}, {"TrafficType", type text}, {"ArrivalPassengers", Int64.Type}, {"DeparturePassengers", Int64.Type}, {"TransferPassengers", Int64.Type}, {"TotalPassengers", Int64.Type}, {"InAnalysisWindow", type logical}, {"DQ_TotalMatchesComponents", type logical}, {"DQ_YearReconcilesWithGrandTotal", type logical}, {"SourceDataset", type text}, {"SourceFile", type text}, {"SourceSheet", type text}, {"SourceRow", Int64.Type}, {"SourceColumns", type text}, {"SourceRetrievedUTC", type datetime}}, "en-US")
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+

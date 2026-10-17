@@ -1,0 +1,164 @@
+/// Undirected route dimension (MD-02): one row per distinct FactRouteMonthly[RouteKey] (alphabetically sorted ICAO pair). Airport attributes from DimAirport; DistanceKm is great-circle (haversine, radius 6,371.0088 km) from DimAirport coordinates, blank where coordinates are missing. Relates to FactRouteMonthly[RouteKey] (R07, Step 3B-3).
+table DimRoute
+	lineageTag: 38621905-4fe9-44f0-8fb5-87c228bde308
+
+	/// Undirected route key: alphabetically sorted ICAO pair, as in FactRouteMonthly[RouteKey]
+	column RouteKey
+		dataType: string
+		isNullable: false
+		lineageTag: 9e7ab2b5-35bc-4e2e-a42c-6494efd967aa
+		summarizeBy: none
+		sourceColumn: RouteKey
+
+	column AirportA_ICAO
+		dataType: string
+		lineageTag: e8991b8e-4307-46b9-a34f-85ba2bc31aab
+		summarizeBy: none
+		sourceColumn: AirportA_ICAO
+
+	column AirportB_ICAO
+		dataType: string
+		lineageTag: 512b2cdc-87c1-477a-abb3-979f446865c8
+		summarizeBy: none
+		sourceColumn: AirportB_ICAO
+
+	/// IATA pair in RouteKey order (ICAO used where no IATA code exists)
+	column RouteCode
+		dataType: string
+		lineageTag: 32afcea4-3f8f-4325-a999-5908ecd82d1e
+		summarizeBy: none
+		sourceColumn: RouteCode
+
+	/// Municipality (IATA) - Municipality (IATA), in RouteKey order
+	column RouteName
+		dataType: string
+		lineageTag: 1efcf321-144e-46ef-81b3-8d7155d5d8e0
+		summarizeBy: none
+		sourceColumn: RouteName
+
+	column RouteScopeSort
+		dataType: int64
+		formatString: 0
+		lineageTag: ee953f0b-871a-46a1-b909-ab77c5d9791a
+		summarizeBy: none
+		sourceColumn: RouteScopeSort
+
+	/// From FactRouteMonthly[RouteScope] (constant per RouteKey)
+	column RouteScope
+		dataType: string
+		lineageTag: 9e6cbfca-2bfe-4121-aacf-053068434594
+		summarizeBy: none
+		sourceColumn: RouteScope
+		sortByColumn: RouteScopeSort
+
+	column CountryA
+		dataType: string
+		lineageTag: 3694c6a6-6cfa-4ddf-b906-a65deabde2cd
+		summarizeBy: none
+		sourceColumn: CountryA
+
+	column CountryB
+		dataType: string
+		lineageTag: 344c5ce0-8eda-4e08-80df-26635787e65e
+		summarizeBy: none
+		sourceColumn: CountryB
+
+	/// TRUE when both ends are in SE/NO/DK/FI (RouteScope Domestic or Cross-border within SE/NO/DK/FI)
+	column IsIntraNordic
+		dataType: boolean
+		lineageTag: c9658d45-43fc-4d1e-a95b-355077df913f
+		summarizeBy: none
+		sourceColumn: IsIntraNordic
+
+	/// Great-circle distance in km from DimAirport coordinates (haversine, R = 6,371.0088 km), rounded to 0.1 km; blank when an airport has no coordinates
+	column DistanceKm
+		dataType: double
+		formatString: #,##0
+		lineageTag: 2c59699a-8c03-48ae-bd89-fd5617b9ecf3
+		summarizeBy: none
+		sourceColumn: DistanceKm
+
+	column DistanceBandSort
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b3cd6b3-4102-41b9-9596-1e5fe9b4d90d
+		summarizeBy: none
+		sourceColumn: DistanceBandSort
+
+	column DistanceBand
+		dataType: string
+		lineageTag: 10aa6c02-270f-4d38-871e-24a42862efda
+		summarizeBy: none
+		sourceColumn: DistanceBand
+		sortByColumn: DistanceBandSort
+
+	column IncludesUnknownAirport
+		dataType: boolean
+		lineageTag: 4857198d-a059-4c59-958d-462916fb447a
+		summarizeBy: none
+		sourceColumn: IncludesUnknownAirport
+
+	partition DimRoute = m
+		mode: import
+		source =
+				let
+				    Fact = FactRouteMonthly,
+				    Routes = Table.Group(Fact, {"RouteKey"}, {{"RouteScope", each List.First([RouteScope]), type text}}),
+				    Airports = Table.Buffer(Table.SelectColumns(DimAirport, {"AirportICAO", "AirportIATA", "AirportName", "Municipality", "CountryName", "Latitude", "Longitude", "IsUnknownMember"})),
+				    AirportLookup = Record.FromTable(Table.FromColumns({Airports[AirportICAO], Table.ToRecords(Airports)}, {"Name", "Value"})),
+				    IsMissing = (t as nullable text) as logical => t = null or t = "",
+				    Code = (a as record) as text => if IsMissing(a[AirportIATA]) then a[AirportICAO] else a[AirportIATA],
+				    Label = (a as record) as text =>
+				        if a[IsUnknownMember] = true then "Unknown partner airport"
+				        else (if IsMissing(a[Municipality]) then a[AirportName] else a[Municipality]) & " (" & Code(a) & ")",
+				    Rad = Number.PI / 180,
+				    Haversine = (a as record, b as record) as nullable number =>
+				        if a[Latitude] = null or a[Longitude] = null or b[Latitude] = null or b[Longitude] = null then null
+				        else
+				            let
+				                dLat = (b[Latitude] - a[Latitude]) * Rad,
+				                dLon = (b[Longitude] - a[Longitude]) * Rad,
+				                h = Number.Power(Number.Sin(dLat / 2), 2)
+				                    + Number.Cos(a[Latitude] * Rad) * Number.Cos(b[Latitude] * Rad) * Number.Power(Number.Sin(dLon / 2), 2)
+				            in
+				                Number.Round(2 * 6371.0088 * Number.Asin(Number.Sqrt(h)), 1),
+				    ScopeSort = (s as nullable text) as number =>
+				        if s = "Domestic" then 1
+				        else if s = "Cross-border within SE/NO/DK/FI" then 2
+				        else if s = "International (outside SE/NO/DK/FI)" then 3
+				        else if s = "Unknown partner" then 4
+				        else 99,
+				    Rows = List.Transform(Table.ToRecords(Routes), (r as record) =>
+				        let
+				            parts = Text.Split(r[RouteKey], "-"),
+				            icaoA = if List.Count(parts) = 2 then parts{0} else error "Unexpected RouteKey format: " & r[RouteKey],
+				            icaoB = parts{1},
+				            a = Record.Field(AirportLookup, icaoA),
+				            b = Record.Field(AirportLookup, icaoB),
+				            km = Haversine(a, b),
+				            band = if km = null then "Unknown distance" else if km < 500 then "< 500 km" else if km < 1500 then "500-1,499 km" else if km < 3000 then "1,500-2,999 km" else ">= 3,000 km",
+				            bandSort = if km = null then 5 else if km < 500 then 1 else if km < 1500 then 2 else if km < 3000 then 3 else 4
+				        in
+				            [
+				                RouteKey = r[RouteKey],
+				                AirportA_ICAO = icaoA,
+				                AirportB_ICAO = icaoB,
+				                RouteCode = Code(a) & "-" & Code(b),
+				                RouteName = Label(a) & " - " & Label(b),
+				                RouteScopeSort = ScopeSort(r[RouteScope]),
+				                RouteScope = r[RouteScope],
+				                CountryA = a[CountryName],
+				                CountryB = b[CountryName],
+				                IsIntraNordic = r[RouteScope] = "Domestic" or r[RouteScope] = "Cross-border within SE/NO/DK/FI",
+				                DistanceKm = km,
+				                DistanceBandSort = bandSort,
+				                DistanceBand = band,
+				                IncludesUnknownAirport = a[IsUnknownMember] = true or b[IsUnknownMember] = true
+				            ]),
+				    DimRoute = Table.FromRecords(Rows, type table [
+				        RouteKey = text, AirportA_ICAO = text, AirportB_ICAO = text, RouteCode = text, RouteName = text,
+				        RouteScopeSort = Int64.Type, RouteScope = text, CountryA = text, CountryB = text, IsIntraNordic = logical,
+				        DistanceKm = number, DistanceBandSort = Int64.Type, DistanceBand = text, IncludesUnknownAirport = logical])
+				in
+				    DimRoute
+

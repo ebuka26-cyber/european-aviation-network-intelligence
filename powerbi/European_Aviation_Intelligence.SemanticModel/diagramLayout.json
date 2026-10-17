@@ -1,0 +1,162 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 1252,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 334.19574583757628,
+            "y": 309.46164784425827
+          },
+          "nodeIndex": "DimAirport",
+          "nodeLineageTag": "f08253bc-5302-4e2d-ac15-ab8823796694",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 829.334119080641,
+            "y": 37.125
+          },
+          "nodeIndex": "FactAirportMonthly",
+          "nodeLineageTag": "c5484d66-7d28-4b36-b63d-83fef96ac031",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 0,
+            "y": 122.14107653610768
+          },
+          "nodeIndex": "FactAvinorMonthly",
+          "nodeLineageTag": "9308eae6-552c-4c64-a832-0db6eee13613",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 953.69571650466833,
+            "y": 431.66298084413643
+          },
+          "nodeIndex": "FactHelsinkiAnnual",
+          "nodeLineageTag": "105cd198-aea2-44e0-998d-dc8dc81d8c8c",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1202.3341190806409,
+            "y": 122.89399042206821
+          },
+          "nodeIndex": "FactRouteMonthly",
+          "nodeLineageTag": "3a10e8ee-1002-4ad8-9b3e-96acdbbe0fe6",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1512.3341190806409,
+            "y": 120.39399042206821
+          },
+          "nodeIndex": "DimDate",
+          "nodeLineageTag": "2f1e1489-7e5e-41c0-bca7-bd6af6af0b7c",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1860.3341190806409,
+            "y": 140.39399042206821
+          },
+          "nodeIndex": "DimYear",
+          "nodeLineageTag": "45bed1b9-b12e-4fed-9ff7-ac7b4fec1675",
+          "size": {
+            "height": 248,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2246.3341190806409,
+            "y": 217.89399042206821
+          },
+          "nodeIndex": "DimDestinationAirport",
+          "nodeLineageTag": "687b1670-9bad-4d15-9b0b-b1b985698a77",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2530.3341190806409,
+            "y": 217.89399042206821
+          },
+          "nodeIndex": "DimOriginAirport",
+          "nodeLineageTag": "9e124efe-4d14-41b9-8683-38dc604858c4",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 2814.3341190806409,
+            "y": 209.64399042206821
+          },
+          "nodeIndex": "DimRoute",
+          "nodeLineageTag": "38621905-4fe9-44f0-8fb5-87c228bde308",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {},
+          "nodeIndex": "_Measures",
+          "nodeLineageTag": "2af6c248-97aa-4b54-9ab8-04f3d13d0cf1",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "All tables",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "All tables",
+  "defaultDiagram": "All tables"
+}

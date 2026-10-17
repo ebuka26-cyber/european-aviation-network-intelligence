@@ -1,0 +1,252 @@
+table DimAirport
+	lineageTag: f08253bc-5302-4e2d-ac15-ab8823796694
+
+	column AirportICAO
+		dataType: string
+		lineageTag: 99965d8b-a550-4d7f-a570-9f4b4fb3b55d
+		summarizeBy: none
+		sourceColumn: AirportICAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column AirportIATA
+		dataType: string
+		lineageTag: da2e20dc-cfd2-4e9d-af2a-935434d38b59
+		summarizeBy: none
+		sourceColumn: AirportIATA
+
+		annotation SummarizationSetBy = Automatic
+
+	column AirportName
+		dataType: string
+		lineageTag: 0c2acf02-e307-4310-8ea0-a413d3ab5f0b
+		summarizeBy: none
+		sourceColumn: AirportName
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryCode
+		dataType: string
+		lineageTag: 89effa13-3468-4667-9ed2-8440e8042ca4
+		summarizeBy: none
+		sourceColumn: CountryCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column CountryName
+		dataType: string
+		lineageTag: 153de9ff-15b6-46d5-b607-5817932782ed
+		summarizeBy: none
+		sourceColumn: CountryName
+
+		annotation SummarizationSetBy = Automatic
+
+	column City
+		dataType: string
+		lineageTag: 0ff50ba2-fcd8-4b4c-8a0f-d5ec36874901
+		summarizeBy: none
+		sourceColumn: City
+
+		annotation SummarizationSetBy = Automatic
+
+	column Municipality
+		dataType: string
+		lineageTag: 10bd01be-7350-43f8-a401-4544a2b4eb06
+		summarizeBy: none
+		sourceColumn: Municipality
+
+		annotation SummarizationSetBy = Automatic
+
+	column ISORegionCode
+		dataType: string
+		lineageTag: 7da6df4f-1017-4b82-a7cb-64c86de43ed4
+		summarizeBy: none
+		sourceColumn: ISORegionCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Latitude
+		dataType: double
+		lineageTag: cf95d3a5-d638-4274-b422-fa7fbeb9f16c
+		summarizeBy: sum
+		sourceColumn: Latitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Longitude
+		dataType: double
+		lineageTag: 6edde9c9-129e-4796-a45e-325d45ca7186
+		summarizeBy: sum
+		sourceColumn: Longitude
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ElevationFt
+		dataType: int64
+		formatString: 0
+		lineageTag: 4b149b68-04a0-4418-9156-58d89335e3c4
+		summarizeBy: sum
+		sourceColumn: ElevationFt
+
+		annotation SummarizationSetBy = Automatic
+
+	column AirportType
+		dataType: string
+		lineageTag: 828e0abf-058e-424d-a36a-619fddfcadd9
+		summarizeBy: none
+		sourceColumn: AirportType
+
+		annotation SummarizationSetBy = Automatic
+
+	column ScheduledService
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: ea6c4849-0931-42c5-86df-be809d28c33a
+		summarizeBy: none
+		sourceColumn: ScheduledService
+
+		annotation SummarizationSetBy = Automatic
+
+	column EurostatAirportCode
+		dataType: string
+		lineageTag: f6137bdb-d7ce-4ab5-acd7-2b5f4b1a66a4
+		summarizeBy: none
+		sourceColumn: EurostatAirportCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column OurAirportsID
+		dataType: int64
+		formatString: 0
+		lineageTag: f72de79a-3b10-4577-bcbc-07103a478f89
+		summarizeBy: count
+		sourceColumn: OurAirportsID
+
+		annotation SummarizationSetBy = Automatic
+
+	column OurAirportsIdent
+		dataType: string
+		lineageTag: 34250bfe-d391-461e-856b-66234cf2c3d0
+		summarizeBy: none
+		sourceColumn: OurAirportsIdent
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_Notes
+		dataType: string
+		lineageTag: 80ad305a-f987-4622-a32f-0ca0276b0167
+		summarizeBy: none
+		sourceColumn: DQ_Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceDataset
+		dataType: string
+		lineageTag: ce0684ee-759d-49ec-ab9f-f149f8b34046
+		summarizeBy: none
+		sourceColumn: SourceDataset
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceRetrievedUTC
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 6612a1ca-66c9-400e-8121-0ce97d4638d4
+		summarizeBy: none
+		sourceColumn: SourceRetrievedUTC
+
+		annotation SummarizationSetBy = Automatic
+
+	column EurostatCountryCode
+		dataType: string
+		lineageTag: 0c1c64ca-35a0-42d2-865d-64499617e3b7
+		summarizeBy: none
+		sourceColumn: EurostatCountryCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column EurostatISOCountryComparison
+		dataType: string
+		lineageTag: 0d952f08-bb31-4092-8fe7-33c9822ead29
+		summarizeBy: none
+		sourceColumn: EurostatISOCountryComparison
+
+		annotation SummarizationSetBy = Automatic
+
+	column ContinentCode
+		dataType: string
+		lineageTag: 90992c3f-5bfc-4dbb-9a0d-26b2030d581e
+		summarizeBy: none
+		sourceColumn: ContinentCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column InFactAirportMonthly
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4d64be51-a39f-488e-9a63-de88a0bd7b7f
+		summarizeBy: none
+		sourceColumn: InFactAirportMonthly
+
+		annotation SummarizationSetBy = Automatic
+
+	column InFactRouteMonthly
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f53949a9-7d21-47e9-b052-9a8691c3d61c
+		summarizeBy: none
+		sourceColumn: InFactRouteMonthly
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsRouteReportingAirport
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 54ea01e6-3ab8-4fe2-a099-02da430a0fcd
+		summarizeBy: none
+		sourceColumn: IsRouteReportingAirport
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsUnknownMember
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 3b1f9f8c-8db6-42f4-9572-f7e90043ee19
+		summarizeBy: none
+		sourceColumn: IsUnknownMember
+
+		annotation SummarizationSetBy = Automatic
+
+	column InFactAvinorMonthly
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 793fdfaf-e514-4788-9c81-086f464a407d
+		summarizeBy: none
+		sourceColumn: InFactAvinorMonthly
+
+		annotation SummarizationSetBy = Automatic
+
+	column OurAirportsMatchField
+		dataType: string
+		lineageTag: c62621a9-696a-41a9-9e95-0ee7d11cc89f
+		summarizeBy: none
+		sourceColumn: OurAirportsMatchField
+
+		annotation SummarizationSetBy = Automatic
+
+	partition DimAirport = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents(DataFolder & "\DimAirport_Final.csv"), [Delimiter = ",", Columns = 28, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"AirportICAO", type text}, {"AirportIATA", type text}, {"AirportName", type text}, {"CountryCode", type text}, {"CountryName", type text}, {"City", type text}, {"Municipality", type text}, {"ISORegionCode", type text}, {"Latitude", type number}, {"Longitude", type number}, {"ElevationFt", Int64.Type}, {"AirportType", type text}, {"ScheduledService", type logical}, {"EurostatAirportCode", type text}, {"OurAirportsID", Int64.Type}, {"OurAirportsIdent", type text}, {"DQ_Notes", type text}, {"SourceDataset", type text}, {"SourceRetrievedUTC", type datetime}, {"EurostatCountryCode", type text}, {"EurostatISOCountryComparison", type text}, {"ContinentCode", type text}, {"InFactAirportMonthly", type logical}, {"InFactRouteMonthly", type logical}, {"IsRouteReportingAirport", type logical}, {"IsUnknownMember", type logical}, {"InFactAvinorMonthly", type logical}, {"OurAirportsMatchField", type text}}, "en-US")
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+

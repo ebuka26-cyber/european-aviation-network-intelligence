@@ -1,0 +1,158 @@
+/// Daily calendar 2022-01-01 to 2025-12-31 (1,461 rows). Step 3A Section 7.2, MD-03. Facts join on MonthStart (first day of month) to DimDate[Date]. Use DimYear[Year] for year slicers.
+table DimDate
+	lineageTag: 2f1e1489-7e5e-41c0-bca7-bd6af6af0b7c
+	dataCategory: Time
+
+	column Date
+		dataType: dateTime
+		isUnique
+		isKey
+		formatString: yyyy-mm-dd
+		lineageTag: 5123ce76-bdf3-42ed-8c18-02ea2dcb807a
+		summarizeBy: none
+		sourceColumn: Date
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	/// Key to DimYear (relationship R11, created in Step 3B-3). Hidden: use DimYear[Year] for slicers and axes.
+	column Year
+		dataType: int64
+		isHidden
+		formatString: 0
+		lineageTag: daae5881-3b47-4b80-99e3-8af839c361f6
+		summarizeBy: none
+		sourceColumn: Year
+
+	column QuarterNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 2d7706a0-ed82-401c-9da6-145350791eec
+		summarizeBy: none
+		sourceColumn: QuarterNumber
+
+	column Quarter
+		dataType: string
+		lineageTag: acb9ba8e-4175-4749-8ef1-3e32ced90d4a
+		summarizeBy: none
+		sourceColumn: Quarter
+		sortByColumn: QuarterNumber
+
+	column YearQuarterKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 650219fe-1ad3-4f9a-95a1-0990b9fc1236
+		summarizeBy: none
+		sourceColumn: YearQuarterKey
+
+	column YearQuarter
+		dataType: string
+		lineageTag: 11b228ff-e3a6-4448-8d64-5b80153acdd0
+		summarizeBy: none
+		sourceColumn: YearQuarter
+		sortByColumn: YearQuarterKey
+
+	column MonthNumber
+		dataType: int64
+		formatString: 0
+		lineageTag: 1b3e3922-8706-477a-a719-d0c9be5ee96f
+		summarizeBy: none
+		sourceColumn: MonthNumber
+
+	column MonthName
+		dataType: string
+		lineageTag: 65cc801a-15c5-4919-bef5-f2a12007ca8e
+		summarizeBy: none
+		sourceColumn: MonthName
+		sortByColumn: MonthNumber
+
+	column MonthShort
+		dataType: string
+		lineageTag: 559b93a9-277e-4573-8b34-52b97cd851c4
+		summarizeBy: none
+		sourceColumn: MonthShort
+		sortByColumn: MonthNumber
+
+	column MonthStart
+		dataType: dateTime
+		formatString: yyyy-mm-dd
+		lineageTag: 17693ab0-bb82-4821-822d-1cc5a3b6ade1
+		summarizeBy: none
+		sourceColumn: MonthStart
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column YearMonth
+		dataType: string
+		lineageTag: 9129e28c-f5da-4187-b14c-b9fa22368378
+		summarizeBy: none
+		sourceColumn: YearMonth
+
+	column YearMonthKey
+		dataType: int64
+		formatString: 0
+		lineageTag: 5c2d3f46-844b-4b47-8eb4-1303a5ba93f6
+		summarizeBy: none
+		sourceColumn: YearMonthKey
+
+	column YearMonthLabel
+		dataType: string
+		lineageTag: d82b2f6a-b4ac-49a8-be96-1cf8d63e56d4
+		summarizeBy: none
+		sourceColumn: YearMonthLabel
+		sortByColumn: YearMonthKey
+
+	column MonthIndex
+		dataType: int64
+		formatString: 0
+		lineageTag: 1657cb18-34f7-4150-9961-36dcf89141ad
+		summarizeBy: none
+		sourceColumn: MonthIndex
+
+	column HasRouteData
+		dataType: boolean
+		lineageTag: fa907cb9-4de3-4318-b147-d538468ebc63
+		summarizeBy: none
+		sourceColumn: HasRouteData
+
+	partition DimDate = m
+		mode: import
+		source =
+				let
+				    StartDate = #date(2022, 1, 1),
+				    EndDate = #date(2025, 12, 31),
+				    DayCount = Duration.Days(EndDate - StartDate) + 1,
+				    Dates = List.Dates(StartDate, DayCount, #duration(1, 0, 0, 0)),
+				    Rows = List.Transform(Dates, (d as date) =>
+				        let
+				            y = Date.Year(d),
+				            q = Date.QuarterOfYear(d),
+				            m = Date.Month(d),
+				            mName = Date.MonthName(d, "en-US"),
+				            mShort = Text.Start(mName, 3),
+				            ms = Date.StartOfMonth(d)
+				        in
+				            [
+				                Date = d,
+				                Year = y,
+				                QuarterNumber = q,
+				                Quarter = "Q" & Text.From(q),
+				                YearQuarter = Text.From(y) & " Q" & Text.From(q),
+				                YearQuarterKey = y * 10 + q,
+				                MonthNumber = m,
+				                MonthName = mName,
+				                MonthShort = mShort,
+				                MonthStart = ms,
+				                YearMonth = Text.From(y) & "-" & Text.PadStart(Text.From(m), 2, "0"),
+				                YearMonthLabel = mShort & " " & Text.From(y),
+				                YearMonthKey = y * 100 + m,
+				                MonthIndex = y * 12 + m - 1,
+				                HasRouteData = ms <= #date(2024, 12, 1)
+				            ]),
+				    DimDate = Table.FromRecords(Rows, type table [
+				        Date = date, Year = Int64.Type, QuarterNumber = Int64.Type, Quarter = text, YearQuarter = text,
+				        YearQuarterKey = Int64.Type, MonthNumber = Int64.Type, MonthName = text, MonthShort = text,
+				        MonthStart = date, YearMonth = text, YearMonthLabel = text, YearMonthKey = Int64.Type,
+				        MonthIndex = Int64.Type, HasRouteData = logical])
+				in
+				    DimDate
+

@@ -1,0 +1,299 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "066c15c53f350d7d8e2b",
+  "displayName": "Airport Performance",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "ad07ac7ad726a98ddbe7",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimAirport"
+              }
+            },
+            "Property": "AirportName"
+          }
+        },
+        "type": "Categorical",
+        "filter": {
+          "Version": 2,
+          "From": [
+            {
+              "Name": "d",
+              "Entity": "DimAirport",
+              "Type": 0
+            }
+          ],
+          "Where": [
+            {
+              "Condition": {
+                "In": {
+                  "Expressions": [
+                    {
+                      "Column": {
+                        "Expression": {
+                          "SourceRef": {
+                            "Source": "d"
+                          }
+                        },
+                        "Property": "AirportName"
+                      }
+                    }
+                  ],
+                  "Values": [
+                    [
+                      {
+                        "Literal": {
+                          "Value": "'Copenhagen Kastrup Airport'"
+                        }
+                      }
+                    ]
+                  ]
+                }
+              }
+            }
+          ]
+        },
+        "howCreated": "Drillthrough",
+        "objects": {
+          "general": [
+            {
+              "properties": {
+                "requireSingleSelect": {
+                  "expr": {
+                    "Literal": {
+                      "Value": "true"
+                    }
+                  }
+                }
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "pageBinding": {
+    "name": "Pod",
+    "type": "Drillthrough",
+    "parameters": [
+      {
+        "name": "Param_ad07ac7ad726a98ddbe7",
+        "boundFilter": "ad07ac7ad726a98ddbe7",
+        "fieldExpr": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DimAirport"
+              }
+            },
+            "Property": "AirportName"
+          }
+        }
+      }
+    ],
+    "acceptsFilterContext": "None"
+  },
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#f7f7f5'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspace": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#f7f7f5'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "218773fe697ea0c57bbd",
+      "target": "028ca6bd29124bca8566",
+      "type": "NoFilter"
+    },
+    {
+      "source": "218773fe697ea0c57bbd",
+      "target": "b509edb1a2ccaddb7d96",
+      "type": "NoFilter"
+    },
+    {
+      "source": "218773fe697ea0c57bbd",
+      "target": "b349c9bce7c5e8e3ccbb",
+      "type": "NoFilter"
+    },
+    {
+      "source": "218773fe697ea0c57bbd",
+      "target": "7ec1ea7f355bf56de8c9",
+      "type": "NoFilter"
+    },
+    {
+      "source": "218773fe697ea0c57bbd",
+      "target": "4771ac95f7009e9e87ef",
+      "type": "NoFilter"
+    },
+    {
+      "source": "fdf2bf58c9bc3629a58b",
+      "target": "028ca6bd29124bca8566",
+      "type": "NoFilter"
+    },
+    {
+      "source": "fdf2bf58c9bc3629a58b",
+      "target": "b509edb1a2ccaddb7d96",
+      "type": "NoFilter"
+    },
+    {
+      "source": "fdf2bf58c9bc3629a58b",
+      "target": "b349c9bce7c5e8e3ccbb",
+      "type": "NoFilter"
+    },
+    {
+      "source": "fdf2bf58c9bc3629a58b",
+      "target": "7ec1ea7f355bf56de8c9",
+      "type": "NoFilter"
+    },
+    {
+      "source": "fdf2bf58c9bc3629a58b",
+      "target": "4771ac95f7009e9e87ef",
+      "type": "NoFilter"
+    },
+    {
+      "source": "edd4b74ac9bfdebaf964",
+      "target": "028ca6bd29124bca8566",
+      "type": "NoFilter"
+    },
+    {
+      "source": "edd4b74ac9bfdebaf964",
+      "target": "b509edb1a2ccaddb7d96",
+      "type": "NoFilter"
+    },
+    {
+      "source": "edd4b74ac9bfdebaf964",
+      "target": "b349c9bce7c5e8e3ccbb",
+      "type": "NoFilter"
+    },
+    {
+      "source": "edd4b74ac9bfdebaf964",
+      "target": "7ec1ea7f355bf56de8c9",
+      "type": "NoFilter"
+    },
+    {
+      "source": "edd4b74ac9bfdebaf964",
+      "target": "4771ac95f7009e9e87ef",
+      "type": "NoFilter"
+    },
+    {
+      "source": "8d248b96e64843910dd0",
+      "target": "028ca6bd29124bca8566",
+      "type": "NoFilter"
+    },
+    {
+      "source": "8d248b96e64843910dd0",
+      "target": "b509edb1a2ccaddb7d96",
+      "type": "NoFilter"
+    },
+    {
+      "source": "8d248b96e64843910dd0",
+      "target": "b349c9bce7c5e8e3ccbb",
+      "type": "NoFilter"
+    },
+    {
+      "source": "8d248b96e64843910dd0",
+      "target": "7ec1ea7f355bf56de8c9",
+      "type": "NoFilter"
+    },
+    {
+      "source": "8d248b96e64843910dd0",
+      "target": "4771ac95f7009e9e87ef",
+      "type": "NoFilter"
+    },
+    {
+      "source": "028ca6bd29124bca8566",
+      "target": "b349c9bce7c5e8e3ccbb",
+      "type": "NoFilter"
+    },
+    {
+      "source": "028ca6bd29124bca8566",
+      "target": "7ec1ea7f355bf56de8c9",
+      "type": "NoFilter"
+    },
+    {
+      "source": "028ca6bd29124bca8566",
+      "target": "4771ac95f7009e9e87ef",
+      "type": "NoFilter"
+    },
+    {
+      "source": "b509edb1a2ccaddb7d96",
+      "target": "b349c9bce7c5e8e3ccbb",
+      "type": "NoFilter"
+    },
+    {
+      "source": "b509edb1a2ccaddb7d96",
+      "target": "7ec1ea7f355bf56de8c9",
+      "type": "NoFilter"
+    },
+    {
+      "source": "b509edb1a2ccaddb7d96",
+      "target": "4771ac95f7009e9e87ef",
+      "type": "NoFilter"
+    },
+    {
+      "source": "b349c9bce7c5e8e3ccbb",
+      "target": "7ec1ea7f355bf56de8c9",
+      "type": "NoFilter"
+    },
+    {
+      "source": "b349c9bce7c5e8e3ccbb",
+      "target": "4771ac95f7009e9e87ef",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7ec1ea7f355bf56de8c9",
+      "target": "4771ac95f7009e9e87ef",
+      "type": "NoFilter"
+    }
+  ]
+}

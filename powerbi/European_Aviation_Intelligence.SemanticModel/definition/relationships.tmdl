@@ -1,0 +1,49 @@
+relationship AutoDetected_e7221ba9-9c94-44b1-b105-87bfe7bc29ee
+	fromColumn: FactAvinorMonthly.AirportICAO
+	toColumn: DimAirport.AirportICAO
+
+relationship AutoDetected_0e3590d7-2914-4ac3-9fc5-74f5275e7e76
+	fromColumn: FactAirportMonthly.AirportICAO
+	toColumn: DimAirport.AirportICAO
+
+relationship AutoDetected_8769c484-acb2-4b7f-aa1a-0dc5db8925dc
+	fromColumn: FactHelsinkiAnnual.AirportICAO
+	toColumn: DimAirport.AirportICAO
+
+relationship R04_DimAirport_FactRouteMonthly_ReportingAirportICAO
+	isActive: false
+	fromColumn: FactRouteMonthly.ReportingAirportICAO
+	toColumn: DimAirport.AirportICAO
+
+relationship R05_DimOriginAirport_FactRouteMonthly_OriginAirportICAO
+	fromColumn: FactRouteMonthly.OriginAirportICAO
+	toColumn: DimOriginAirport.OriginAirportICAO
+
+relationship R06_DimDestinationAirport_FactRouteMonthly_DestinationAirportICAO
+	fromColumn: FactRouteMonthly.DestinationAirportICAO
+	toColumn: DimDestinationAirport.DestinationAirportICAO
+
+relationship R07_DimRoute_FactRouteMonthly_RouteKey
+	fromColumn: FactRouteMonthly.RouteKey
+	toColumn: DimRoute.RouteKey
+
+relationship R08_DimDate_FactAirportMonthly_MonthStart
+	fromColumn: FactAirportMonthly.MonthStart
+	toColumn: DimDate.Date
+
+relationship R09_DimDate_FactRouteMonthly_MonthStart
+	fromColumn: FactRouteMonthly.MonthStart
+	toColumn: DimDate.Date
+
+relationship R10_DimDate_FactAvinorMonthly_MonthStart
+	fromColumn: FactAvinorMonthly.MonthStart
+	toColumn: DimDate.Date
+
+relationship R11_DimYear_DimDate_Year
+	fromColumn: DimDate.Year
+	toColumn: DimYear.Year
+
+relationship R12_DimYear_FactHelsinkiAnnual_Year
+	fromColumn: FactHelsinkiAnnual.Year
+	toColumn: DimYear.Year
+

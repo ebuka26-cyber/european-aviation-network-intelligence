@@ -1,0 +1,7 @@
+expression DataFolder = "C:\Projects\european-aviation-network-intelligence\data\processed" meta [IsParameterQuery=true, Type="Text", IsParameterQueryRequired=true]
+	lineageTag: c471cdf5-6cbf-4e2e-b6c8-2a03d29c010e
+
+	annotation PBI_NavigationStepName = Navigation
+
+	annotation PBI_ResultType = Text
+

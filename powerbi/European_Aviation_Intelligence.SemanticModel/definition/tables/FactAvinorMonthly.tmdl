@@ -1,0 +1,314 @@
+table FactAvinorMonthly
+	lineageTag: 9308eae6-552c-4c64-a832-0db6eee13613
+
+	column AirportICAO
+		dataType: string
+		lineageTag: 59dc78cb-98e1-42ca-8424-70e15efc8ee5
+		summarizeBy: none
+		sourceColumn: AirportICAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column AirportIATA
+		dataType: string
+		lineageTag: 41484ec9-3a3d-41df-8110-a24c74482213
+		summarizeBy: none
+		sourceColumn: AirportIATA
+
+		annotation SummarizationSetBy = Automatic
+
+	column AvinorAirportName
+		dataType: string
+		lineageTag: 1df3ed06-14cf-4dc9-9186-1373970a51bb
+		summarizeBy: none
+		sourceColumn: AvinorAirportName
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthStart
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: fff0c349-1861-46c4-86a0-dad1034518c8
+		summarizeBy: none
+		sourceColumn: MonthStart
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Period
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7f3a1a35-4794-4d52-919b-e3c116d49843
+		summarizeBy: none
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column DomesticPaxArrDep
+		dataType: int64
+		formatString: 0
+		lineageTag: 3a46d876-7044-4a90-821f-e55a1dceaf71
+		summarizeBy: sum
+		sourceColumn: DomesticPaxArrDep
+
+		annotation SummarizationSetBy = Automatic
+
+	column DomesticPaxTransfer
+		dataType: int64
+		formatString: 0
+		lineageTag: f2fed800-0d9d-4a24-9629-b8663d0d4bdf
+		summarizeBy: sum
+		sourceColumn: DomesticPaxTransfer
+
+		annotation SummarizationSetBy = Automatic
+
+	column DomesticPax
+		dataType: int64
+		formatString: 0
+		lineageTag: 8adc0b58-05e8-4450-ba5e-54abc2456ec6
+		summarizeBy: sum
+		sourceColumn: DomesticPax
+
+		annotation SummarizationSetBy = Automatic
+
+	column InternationalPaxArrDep
+		dataType: int64
+		formatString: 0
+		lineageTag: e6244d3d-4a38-4de7-bc34-ecb3568e2782
+		summarizeBy: sum
+		sourceColumn: InternationalPaxArrDep
+
+		annotation SummarizationSetBy = Automatic
+
+	column InternationalPaxTransfer
+		dataType: int64
+		formatString: 0
+		lineageTag: f7d9ad70-4774-460f-b13d-b27a3bd8f4b4
+		summarizeBy: sum
+		sourceColumn: InternationalPaxTransfer
+
+		annotation SummarizationSetBy = Automatic
+
+	column InternationalPax
+		dataType: int64
+		formatString: 0
+		lineageTag: 5ea63b6b-0cbf-41e8-ac52-a0f82833102f
+		summarizeBy: sum
+		sourceColumn: InternationalPax
+
+		annotation SummarizationSetBy = Automatic
+
+	column OffshorePax
+		dataType: int64
+		formatString: 0
+		lineageTag: 8fa8b082-3e69-4d05-8bf0-6f715155885d
+		summarizeBy: sum
+		sourceColumn: OffshorePax
+
+		annotation SummarizationSetBy = Automatic
+
+	column TerminalPax
+		dataType: int64
+		formatString: 0
+		lineageTag: ca74fa29-0736-4436-bcc3-869e0dfb7e2d
+		summarizeBy: sum
+		sourceColumn: TerminalPax
+
+		annotation SummarizationSetBy = Automatic
+
+	column TransitPax
+		dataType: int64
+		formatString: 0
+		lineageTag: e9ef1c66-5141-4a89-bdc9-a1698fff161a
+		summarizeBy: sum
+		sourceColumn: TransitPax
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalPax
+		dataType: int64
+		formatString: 0
+		lineageTag: 80a93023-257a-4bdb-85d5-e5cdb44f84af
+		summarizeBy: sum
+		sourceColumn: TotalPax
+
+		annotation SummarizationSetBy = Automatic
+
+	column DomesticCommercialMovements
+		dataType: int64
+		formatString: 0
+		lineageTag: 26fe89c4-df08-49ea-b020-74ea7d1afdd3
+		summarizeBy: sum
+		sourceColumn: DomesticCommercialMovements
+
+		annotation SummarizationSetBy = Automatic
+
+	column InternationalCommercialMovements
+		dataType: int64
+		formatString: 0
+		lineageTag: 405f719e-670c-409d-ae84-5d4d385c55ce
+		summarizeBy: sum
+		sourceColumn: InternationalCommercialMovements
+
+		annotation SummarizationSetBy = Automatic
+
+	column OffshoreCommercialMovements
+		dataType: int64
+		formatString: 0
+		lineageTag: f919b7b8-b72e-4719-9a35-b65b0bdb73c7
+		summarizeBy: sum
+		sourceColumn: OffshoreCommercialMovements
+
+		annotation SummarizationSetBy = Automatic
+
+	column CommercialMovements
+		dataType: int64
+		formatString: 0
+		lineageTag: 0ac5e765-f609-416b-a780-58fb914f2f88
+		summarizeBy: sum
+		sourceColumn: CommercialMovements
+
+		annotation SummarizationSetBy = Automatic
+
+	column OtherCivilMovements
+		dataType: int64
+		formatString: 0
+		lineageTag: 905e413e-65db-4d12-8517-76ee8d9e5fe5
+		summarizeBy: sum
+		sourceColumn: OtherCivilMovements
+
+		annotation SummarizationSetBy = Automatic
+
+	column TotalMovements
+		dataType: int64
+		formatString: 0
+		lineageTag: d95fab56-804b-4397-9b06-f8be564991e4
+		summarizeBy: sum
+		sourceColumn: TotalMovements
+
+		annotation SummarizationSetBy = Automatic
+
+	column PassengerRowPublished
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 01200ad6-e4b9-4706-b7b6-a51e40294adf
+		summarizeBy: none
+		sourceColumn: PassengerRowPublished
+
+		annotation SummarizationSetBy = Automatic
+
+	column MovementRowPublished
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: e5e5f5c4-ded3-4473-9b69-72e88aca58fe
+		summarizeBy: none
+		sourceColumn: MovementRowPublished
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_NoTrafficDataPublished
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4ade6b7f-8574-4c8f-8205-fbd7fa17c217
+		summarizeBy: none
+		sourceColumn: DQ_NoTrafficDataPublished
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_MovementsWithoutPassengers
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 246356d3-2def-402f-827a-a14a34f24d38
+		summarizeBy: none
+		sourceColumn: DQ_MovementsWithoutPassengers
+
+		annotation SummarizationSetBy = Automatic
+
+	column ICAOMappingSource
+		dataType: string
+		lineageTag: 8b6c89fb-4ef1-46c8-8239-e34e00a6a373
+		summarizeBy: none
+		sourceColumn: ICAOMappingSource
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_Notes
+		dataType: string
+		lineageTag: 421711c4-db39-40e4-b5f9-8061cddb1050
+		summarizeBy: none
+		sourceColumn: DQ_Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceFile
+		dataType: string
+		lineageTag: 2557bac9-11be-4869-94e5-0cb5755d9e32
+		summarizeBy: none
+		sourceColumn: SourceFile
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceSheetPassengers
+		dataType: string
+		lineageTag: 2b8c1483-de21-4e69-8b92-ccf3462f0748
+		summarizeBy: none
+		sourceColumn: SourceSheetPassengers
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceSheetMovements
+		dataType: string
+		lineageTag: 26523583-0bc3-4966-86fc-7e9d9503e7cf
+		summarizeBy: none
+		sourceColumn: SourceSheetMovements
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceLayoutPassengers
+		dataType: string
+		lineageTag: 381414c3-931d-4862-a1be-0e3081a8664e
+		summarizeBy: none
+		sourceColumn: SourceLayoutPassengers
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceLayoutMovements
+		dataType: string
+		lineageTag: 610e3b35-2d33-4db2-84a1-9772217dd540
+		summarizeBy: none
+		sourceColumn: SourceLayoutMovements
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceURL
+		dataType: string
+		lineageTag: 62daf66c-e80d-4350-baa2-0c284f63bf0f
+		summarizeBy: none
+		sourceColumn: SourceURL
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceRetrievedUTC
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 5f458991-088a-47e7-9c61-30a039f43749
+		summarizeBy: none
+		sourceColumn: SourceRetrievedUTC
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactAvinorMonthly = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents(DataFolder & "\FactAvinorMonthly.csv"), [Delimiter = ",", Columns = 34, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"AirportICAO", type text}, {"AirportIATA", type text}, {"AvinorAirportName", type text}, {"MonthStart", type date}, {"Period", type date}, {"DomesticPaxArrDep", Int64.Type}, {"DomesticPaxTransfer", Int64.Type}, {"DomesticPax", Int64.Type}, {"InternationalPaxArrDep", Int64.Type}, {"InternationalPaxTransfer", Int64.Type}, {"InternationalPax", Int64.Type}, {"OffshorePax", Int64.Type}, {"TerminalPax", Int64.Type}, {"TransitPax", Int64.Type}, {"TotalPax", Int64.Type}, {"DomesticCommercialMovements", Int64.Type}, {"InternationalCommercialMovements", Int64.Type}, {"OffshoreCommercialMovements", Int64.Type}, {"CommercialMovements", Int64.Type}, {"OtherCivilMovements", Int64.Type}, {"TotalMovements", Int64.Type}, {"PassengerRowPublished", type logical}, {"MovementRowPublished", type logical}, {"DQ_NoTrafficDataPublished", type logical}, {"DQ_MovementsWithoutPassengers", type logical}, {"ICAOMappingSource", type text}, {"DQ_Notes", type text}, {"SourceFile", type text}, {"SourceSheetPassengers", type text}, {"SourceSheetMovements", type text}, {"SourceLayoutPassengers", type text}, {"SourceLayoutMovements", type text}, {"SourceURL", type text}, {"SourceRetrievedUTC", type datetime}}, "en-US")
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+

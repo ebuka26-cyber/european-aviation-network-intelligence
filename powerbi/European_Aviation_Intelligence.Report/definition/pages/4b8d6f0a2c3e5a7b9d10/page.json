@@ -1,0 +1,140 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/page/2.1.0/schema.json",
+  "name": "4b8d6f0a2c3e5a7b9d10",
+  "displayName": "Norway Deep Dive (Avinor)",
+  "displayOption": "FitToPage",
+  "height": 720,
+  "width": 1280,
+  "objects": {
+    "background": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#f7f7f5'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ],
+    "outspace": [
+      {
+        "properties": {
+          "color": {
+            "solid": {
+              "color": {
+                "expr": {
+                  "Literal": {
+                    "Value": "'#f7f7f5'"
+                  }
+                }
+              }
+            }
+          },
+          "transparency": {
+            "expr": {
+              "Literal": {
+                "Value": "0D"
+              }
+            }
+          }
+        }
+      }
+    ]
+  },
+  "visualInteractions": [
+    {
+      "source": "078b2f01663b206eb51c",
+      "target": "9cb75c2bee5163f3b770",
+      "type": "NoFilter"
+    },
+    {
+      "source": "078b2f01663b206eb51c",
+      "target": "460b2688365199454a9c",
+      "type": "NoFilter"
+    },
+    {
+      "source": "078b2f01663b206eb51c",
+      "target": "7b2a428c45f41db04ee7",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d3e527e7ff2db4bb4d2a",
+      "target": "9cb75c2bee5163f3b770",
+      "type": "NoFilter"
+    },
+    {
+      "source": "d3e527e7ff2db4bb4d2a",
+      "target": "460b2688365199454a9c",
+      "type": "NoFilter"
+    },
+    {
+      "source": "a46dc8b2f2ac6d9b9e5d",
+      "target": "9cb75c2bee5163f3b770",
+      "type": "NoFilter"
+    },
+    {
+      "source": "a46dc8b2f2ac6d9b9e5d",
+      "target": "460b2688365199454a9c",
+      "type": "NoFilter"
+    },
+    {
+      "source": "a46dc8b2f2ac6d9b9e5d",
+      "target": "7b2a428c45f41db04ee7",
+      "type": "NoFilter"
+    },
+    {
+      "source": "fcd21b424f7e850254d8",
+      "target": "9cb75c2bee5163f3b770",
+      "type": "NoFilter"
+    },
+    {
+      "source": "fcd21b424f7e850254d8",
+      "target": "460b2688365199454a9c",
+      "type": "NoFilter"
+    },
+    {
+      "source": "1a7a68cda5538dac71a2",
+      "target": "9cb75c2bee5163f3b770",
+      "type": "NoFilter"
+    },
+    {
+      "source": "1a7a68cda5538dac71a2",
+      "target": "460b2688365199454a9c",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7b2a428c45f41db04ee7",
+      "target": "9cb75c2bee5163f3b770",
+      "type": "NoFilter"
+    },
+    {
+      "source": "7b2a428c45f41db04ee7",
+      "target": "460b2688365199454a9c",
+      "type": "NoFilter"
+    },
+    {
+      "source": "9cb75c2bee5163f3b770",
+      "target": "460b2688365199454a9c",
+      "type": "NoFilter"
+    },
+    {
+      "source": "9cb75c2bee5163f3b770",
+      "target": "7b2a428c45f41db04ee7",
+      "type": "NoFilter"
+    }
+  ]
+}

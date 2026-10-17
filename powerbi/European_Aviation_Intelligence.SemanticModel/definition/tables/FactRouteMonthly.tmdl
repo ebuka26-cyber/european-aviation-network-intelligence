@@ -1,0 +1,342 @@
+table FactRouteMonthly
+	lineageTag: 3a10e8ee-1002-4ad8-9b3e-96acdbbe0fe6
+
+	column EurostatRouteCode
+		dataType: string
+		lineageTag: 0aa58460-89f5-4411-9fc3-a7479735fd45
+		summarizeBy: none
+		sourceColumn: EurostatRouteCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReportingAirportICAO
+		dataType: string
+		lineageTag: 1206bb7d-29f8-496c-bb2a-679d99e6d403
+		summarizeBy: none
+		sourceColumn: ReportingAirportICAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReportingCountryCode
+		dataType: string
+		lineageTag: 46f6503a-86b8-4417-8512-fe701e3beee8
+		summarizeBy: none
+		sourceColumn: ReportingCountryCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column PartnerAirportICAO
+		dataType: string
+		lineageTag: 75237fb2-6d01-4470-8705-c2fe941698ca
+		summarizeBy: none
+		sourceColumn: PartnerAirportICAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column PartnerCountryCode
+		dataType: string
+		lineageTag: f34d23e4-1d1c-4425-b127-7e5620d4318d
+		summarizeBy: none
+		sourceColumn: PartnerCountryCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column Direction
+		dataType: string
+		lineageTag: 84989de1-4862-46e1-add9-5336ef17d191
+		summarizeBy: none
+		sourceColumn: Direction
+
+		annotation SummarizationSetBy = Automatic
+
+	column OriginAirportICAO
+		dataType: string
+		lineageTag: 29cde6aa-9420-43c2-85ac-62eb135c1248
+		summarizeBy: none
+		sourceColumn: OriginAirportICAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column DestinationAirportICAO
+		dataType: string
+		lineageTag: 28ba404d-26bb-4038-b628-0eb3b8a96e01
+		summarizeBy: none
+		sourceColumn: DestinationAirportICAO
+
+		annotation SummarizationSetBy = Automatic
+
+	column OriginCountryCode
+		dataType: string
+		lineageTag: 02d26c3b-7c87-4f04-b19c-8982fafa8046
+		summarizeBy: none
+		sourceColumn: OriginCountryCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column DestinationCountryCode
+		dataType: string
+		lineageTag: de2cd92e-7cc8-4f6c-8995-4db4970138b0
+		summarizeBy: none
+		sourceColumn: DestinationCountryCode
+
+		annotation SummarizationSetBy = Automatic
+
+	column FlowKey
+		dataType: string
+		lineageTag: 936e90cf-0191-4d85-a38a-227784fd117b
+		summarizeBy: none
+		sourceColumn: FlowKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column RouteKey
+		dataType: string
+		lineageTag: 7ec421ec-23e2-4193-8219-6de58597e2a1
+		summarizeBy: none
+		sourceColumn: RouteKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column RouteScope
+		dataType: string
+		lineageTag: 0adfc267-3c39-41b9-aefc-742bd3ee36a9
+		summarizeBy: none
+		sourceColumn: RouteScope
+
+		annotation SummarizationSetBy = Automatic
+
+	column MonthStart
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 060a4f2b-2b1b-4735-b167-ca9a960fd458
+		summarizeBy: none
+		sourceColumn: MonthStart
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Period
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 35aad336-d60f-4878-a142-ab3e62123ad7
+		summarizeBy: none
+		sourceColumn: Period
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column PassengersCarried
+		dataType: int64
+		formatString: 0
+		lineageTag: b333c88d-7d27-4fb5-9462-9bbb43e61d6e
+		summarizeBy: sum
+		sourceColumn: PassengersCarried
+
+		annotation SummarizationSetBy = Automatic
+
+	column PassengersOnBoard
+		dataType: int64
+		formatString: 0
+		lineageTag: 7a424035-1750-4ee6-887b-b853085ebb92
+		summarizeBy: sum
+		sourceColumn: PassengersOnBoard
+
+		annotation SummarizationSetBy = Automatic
+
+	column PassengerFlights
+		dataType: int64
+		formatString: 0
+		lineageTag: a6cb0af1-2b4b-4e7f-8815-e754cc4243c8
+		summarizeBy: sum
+		sourceColumn: PassengerFlights
+
+		annotation SummarizationSetBy = Automatic
+
+	column PassengerSeatsAvailable
+		dataType: int64
+		formatString: 0
+		lineageTag: 351eaba8-2fd0-48ae-bb49-0b5b104c2810
+		summarizeBy: sum
+		sourceColumn: PassengerSeatsAvailable
+
+		annotation SummarizationSetBy = Automatic
+
+	column ValueStatus
+		dataType: string
+		lineageTag: 2233ddd3-3ad7-441a-8f80-ef1302831a98
+		summarizeBy: none
+		sourceColumn: ValueStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column EurostatObsFlags
+		dataType: string
+		lineageTag: adb7828f-abe2-49c2-b813-bbad82ff2875
+		summarizeBy: none
+		sourceColumn: EurostatObsFlags
+
+		annotation SummarizationSetBy = Automatic
+
+	column EurostatConfStatus
+		dataType: string
+		lineageTag: 9d7ea81b-246b-4363-aa1a-84850351baac
+		summarizeBy: none
+		sourceColumn: EurostatConfStatus
+
+		annotation SummarizationSetBy = Automatic
+
+	column ReportedByBothEndpoints
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b1d9b886-0990-4fc1-bf7c-ecd4630803aa
+		summarizeBy: none
+		sourceColumn: ReportedByBothEndpoints
+
+		annotation SummarizationSetBy = Automatic
+
+	column IsPrimaryReport
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 150a148c-ca60-4de1-9b32-4ef142a9929a
+		summarizeBy: none
+		sourceColumn: IsPrimaryReport
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_SE_JanFeb2022_FlightsSeatsIncomplete
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 99c0f85f-7e47-4319-8ea9-b8c6c4069a37
+		summarizeBy: none
+		sourceColumn: DQ_SE_JanFeb2022_FlightsSeatsIncomplete
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_PassengersExceedSeats
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a958a91e-58e3-48de-a369-bc034574b8b9
+		summarizeBy: none
+		sourceColumn: DQ_PassengersExceedSeats
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_PassengersWithoutFlights
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 14cf1596-937a-4623-8987-3e8df0f92f86
+		summarizeBy: none
+		sourceColumn: DQ_PassengersWithoutFlights
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_SeatsPerFlightImpossible
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 808eacdf-4bba-4dbd-b70b-9d19086db8be
+		summarizeBy: none
+		sourceColumn: DQ_SeatsPerFlightImpossible
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_SeatsPerFlightAbove400
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 27602940-8d1e-49c6-89de-409bd4b89fc6
+		summarizeBy: none
+		sourceColumn: DQ_SeatsPerFlightAbove400
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_ReciprocalReportsDiffer
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 9b9fb740-8a5d-4100-8565-e223e8921daa
+		summarizeBy: none
+		sourceColumn: DQ_ReciprocalReportsDiffer
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_UnknownPartner
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: f8042a92-1085-45cb-a64e-ebaccb8f6945
+		summarizeBy: none
+		sourceColumn: DQ_UnknownPartner
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_ReportingAirportPartialCoverage
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 4e4641f2-7d83-41ce-9918-471209f52710
+		summarizeBy: none
+		sourceColumn: DQ_ReportingAirportPartialCoverage
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_CapacityValidForLoadFactor
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 31738d0c-a36d-470c-b8ab-0e61a393d217
+		summarizeBy: none
+		sourceColumn: DQ_CapacityValidForLoadFactor
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_FlagCount
+		dataType: int64
+		formatString: 0
+		lineageTag: ff841082-5c0a-41e7-bf20-6956bd598b6d
+		summarizeBy: sum
+		sourceColumn: DQ_FlagCount
+
+		annotation SummarizationSetBy = Automatic
+
+	column DQ_Notes
+		dataType: string
+		lineageTag: 77d49033-7e57-4263-89f2-fd663ed716da
+		summarizeBy: none
+		sourceColumn: DQ_Notes
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceDataset
+		dataType: string
+		lineageTag: ca9bf773-96e5-4c2c-bd93-e21bfa2f01ae
+		summarizeBy: none
+		sourceColumn: SourceDataset
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceFile
+		dataType: string
+		lineageTag: 5ec00abb-8e21-48b1-b96a-858a41ff4231
+		summarizeBy: none
+		sourceColumn: SourceFile
+
+		annotation SummarizationSetBy = Automatic
+
+	column SourceLastUpdate
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: a4724e69-d9ab-4fd5-9bf5-c36e0a39152f
+		summarizeBy: none
+		sourceColumn: SourceLastUpdate
+
+		annotation SummarizationSetBy = Automatic
+
+	partition FactRouteMonthly = m
+		mode: import
+		source =
+				let
+				  Source = Csv.Document(File.Contents(DataFolder & "\FactRouteMonthly.csv"), [Delimiter = ",", Columns = 38, QuoteStyle = QuoteStyle.None]),
+				  #"Promoted headers" = Table.PromoteHeaders(Source, [PromoteAllScalars = true]),
+				  #"Changed column type" = Table.TransformColumnTypes(#"Promoted headers", {{"EurostatRouteCode", type text}, {"ReportingAirportICAO", type text}, {"ReportingCountryCode", type text}, {"PartnerAirportICAO", type text}, {"PartnerCountryCode", type text}, {"Direction", type text}, {"OriginAirportICAO", type text}, {"DestinationAirportICAO", type text}, {"OriginCountryCode", type text}, {"DestinationCountryCode", type text}, {"FlowKey", type text}, {"RouteKey", type text}, {"RouteScope", type text}, {"MonthStart", type date}, {"Period", type date}, {"PassengersCarried", Int64.Type}, {"PassengersOnBoard", Int64.Type}, {"PassengerFlights", Int64.Type}, {"PassengerSeatsAvailable", Int64.Type}, {"ValueStatus", type text}, {"EurostatObsFlags", type text}, {"EurostatConfStatus", type text}, {"ReportedByBothEndpoints", type logical}, {"IsPrimaryReport", type logical}, {"DQ_SE_JanFeb2022_FlightsSeatsIncomplete", type logical}, {"DQ_PassengersExceedSeats", type logical}, {"DQ_PassengersWithoutFlights", type logical}, {"DQ_SeatsPerFlightImpossible", type logical}, {"DQ_SeatsPerFlightAbove400", type logical}, {"DQ_ReciprocalReportsDiffer", type logical}, {"DQ_UnknownPartner", type logical}, {"DQ_ReportingAirportPartialCoverage", type logical}, {"DQ_CapacityValidForLoadFactor", type logical}, {"DQ_FlagCount", Int64.Type}, {"DQ_Notes", type text}, {"SourceDataset", type text}, {"SourceFile", type text}, {"SourceLastUpdate", type datetime}}, "en-US")
+				in
+				  #"Changed column type"
+
+	annotation PBI_ResultType = Table
+

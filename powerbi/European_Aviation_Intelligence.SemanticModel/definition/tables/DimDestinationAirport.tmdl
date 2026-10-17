@@ -1,0 +1,99 @@
+/// Role-playing destination airport dimension: Power Query reference of DimAirport, rows with InFactRouteMonthly = TRUE (185), columns prefixed Destination. Relates only to FactRouteMonthly[DestinationAirportICAO] (R06, Step 3B-3).
+table DimDestinationAirport
+	lineageTag: 687b1670-9bad-4d15-9b0b-b1b985698a77
+
+	column DestinationAirportICAO
+		dataType: string
+		isNullable: false
+		lineageTag: 961018e2-0e44-422c-9677-c0983bc33f95
+		summarizeBy: none
+		sourceColumn: DestinationAirportICAO
+
+	column DestinationAirportIATA
+		dataType: string
+		lineageTag: 7e70bb1d-4c73-4a51-a91b-bcdc97d87c42
+		summarizeBy: none
+		sourceColumn: DestinationAirportIATA
+
+	column DestinationAirportName
+		dataType: string
+		lineageTag: c64ead69-8c2f-4c92-b8df-88f5e33d6ed1
+		summarizeBy: none
+		sourceColumn: DestinationAirportName
+
+	column DestinationISOCountryCode
+		dataType: string
+		lineageTag: 97cb35e8-1845-4820-8ac5-a8aafd67f833
+		summarizeBy: none
+		sourceColumn: DestinationISOCountryCode
+
+	column DestinationCountryName
+		dataType: string
+		lineageTag: 3e1d92a2-6e66-4125-9d9a-3991f02e5402
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: DestinationCountryName
+
+	column DestinationMunicipality
+		dataType: string
+		lineageTag: 79c7c55a-41ea-48d1-bff6-65fc1b86f5fb
+		summarizeBy: none
+		sourceColumn: DestinationMunicipality
+
+	column DestinationLatitude
+		dataType: double
+		lineageTag: 740c4a81-dfb9-4a50-8929-1978ab1c21b5
+		dataCategory: Latitude
+		summarizeBy: none
+		sourceColumn: DestinationLatitude
+
+	column DestinationLongitude
+		dataType: double
+		lineageTag: be56e353-227e-4826-a068-69b4fcf3cbbe
+		dataCategory: Longitude
+		summarizeBy: none
+		sourceColumn: DestinationLongitude
+
+	column DestinationEurostatCountryCode
+		dataType: string
+		lineageTag: 9777581c-1c58-4107-8b34-90de7124abf4
+		summarizeBy: none
+		sourceColumn: DestinationEurostatCountryCode
+
+	column DestinationContinentCode
+		dataType: string
+		lineageTag: 6050a2ab-2611-4cda-ad00-11e7bdfd29a4
+		summarizeBy: none
+		sourceColumn: DestinationContinentCode
+
+	column DestinationIsReportingAirport
+		dataType: boolean
+		lineageTag: e578073a-cf6b-4cea-9f3b-50fdc18f20a8
+		summarizeBy: none
+		sourceColumn: DestinationIsReportingAirport
+
+	column DestinationIsUnknown
+		dataType: boolean
+		lineageTag: 888d2b7a-178e-4cfe-8ffc-d3508425fc1d
+		summarizeBy: none
+		sourceColumn: DestinationIsUnknown
+
+	partition DimDestinationAirport = m
+		mode: import
+		source =
+				let
+				    Source = DimAirport,
+				    Rows = Table.SelectRows(Source, each [InFactRouteMonthly] = true),
+				    Kept = Table.SelectColumns(Rows, {"AirportICAO", "AirportIATA", "AirportName", "CountryCode", "CountryName",
+				        "Municipality", "Latitude", "Longitude", "EurostatCountryCode", "ContinentCode",
+				        "IsRouteReportingAirport", "IsUnknownMember"}),
+				    Renamed = Table.RenameColumns(Kept, {
+				        {"AirportICAO", "DestinationAirportICAO"}, {"AirportIATA", "DestinationAirportIATA"},
+				        {"AirportName", "DestinationAirportName"}, {"CountryCode", "DestinationISOCountryCode"},
+				        {"CountryName", "DestinationCountryName"}, {"Municipality", "DestinationMunicipality"},
+				        {"Latitude", "DestinationLatitude"}, {"Longitude", "DestinationLongitude"},
+				        {"EurostatCountryCode", "DestinationEurostatCountryCode"}, {"ContinentCode", "DestinationContinentCode"},
+				        {"IsRouteReportingAirport", "DestinationIsReportingAirport"}, {"IsUnknownMember", "DestinationIsUnknown"}})
+				in
+				    Renamed
+

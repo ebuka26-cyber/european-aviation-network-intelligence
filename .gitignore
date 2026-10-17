@@ -1,0 +1,12 @@
+# Power BI Project: local files that must not be committed
+**/.pbi/localSettings.json
+**/.pbi/cache.abf
+
+# Classic single-file exports (the PBIP folders are the source)
+*.pbix
+
+# Operating system and Office temporary files
+Thumbs.db
+desktop.ini
+.DS_Store
+~$*
